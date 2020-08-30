@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <%- include('partials/head')%>
+</head>
+<body>
+
+        <%- include('partials/header')%>
+
+        <h1 class="text-center" style="margin-top:100px">Success member has been added</h1>
+        <div class="d-flex justify-content-center mb-4">
+            <a href="/dashboard" class="btn btn-lg rounded-0 mr-2" style="background-color: #ac8074;color:white">BACK TO DASHBOARD</a>
+             <a href="/members" class="btn btn-lg rounded-0 mr-2" style="background-color: #ac8074;color:white">VIEW MEMBERS</a>
+        </div>
+
+ 
+
+    <%- include('partials/footer') %>
+    <script>
+        $(document).ready( () => {
+//
+
+const membermodal = $('#membermodal')
+console.log(eventmodal)
+$(window).load(()=>{
+    $('#membermodal').modal();
+})
+
+
+// adding members
+
+
+ })
+    </script>
+</body>
+</html>

@@ -13,8 +13,9 @@ const express = require ('express');
    
   var upload = multer({ storage: storage })
 
- router.post('/', upload.single('postimage'), (req, res)=>{
-     console.log(req.body.name)
+ router.post('/', upload.single('profilePicture'), (req, res)=>{
+     console.log(req.body)
+     console.log(req.file.path)
     const member = new Members ({
     Name: req.body.name,
     idNumber: req.body.id,
@@ -30,7 +31,7 @@ const express = require ('express');
             res.send(err);
         }
         else {
-            res.send({success: true});
+            res.render('success');
         }
     })
 

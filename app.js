@@ -46,7 +46,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/publish-news', newsRouter)
 app.use('/publish-events', eventsRouter)
-app.use('/add-members', membersRouter)
+app.use('/add-members/', membersRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/about', aboutRouter)
 app.use('/find-a-lawyer', searchRouter)
@@ -58,9 +58,9 @@ const router = express.Router();
 
  const Members = require ('./models/members')
 
-app.get('/getprofile/:id',async (req, res)=>{
+app.get('/getprofile/:id', (req, res)=>{
     const id = new ObjectId(req.params.id);
-const member = await Members.findById({_id: id});
+const member =  Members.findById({_id: id});
 console.log(member);
     res.render('profile', {member: member})
 })

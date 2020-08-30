@@ -13,7 +13,7 @@
   <%- include('partials/head')%>
 </head>
 <body>
-        
+
         <%- include('partials/header')%>
 <div class="container-fluid">
     <div class="row">
@@ -35,7 +35,7 @@
             <div id="member">
                     <h2>Add new member</h2>
                     <hr>
-        <form id="membersform" enctype="multipart/form-data" method="POST">
+        <form id="membersform" action="/add-members/" enctype="multipart/form-data" method="POST">
             <div class="form-group">
                 <label for="name" class="label-control">Name</label>
                 <input type="text" name="name" id="name" class="form-control rounded-0">
@@ -274,38 +274,6 @@ $.ajax({
 })
 
 // adding members
-
-$('#membersform').on('submit', (e)=>{
-    e.preventDefault();
-    const memberdata = {
-    name: $('#name').val(),
-    id: $('#id').val(),
-    status: $('#status').val(),
-    picture: $('#profilePicture').val()
-}
-
-console.log(memberdata)
-
-$.ajax({
-    url: "/add-members/",
-    method:"POST",
-    data: memberdata,
-    mrpostType:"application/json",
-    success:function(response){
-        console.log(response)
-        console.log(response.success)
-
-        if (response.success === true){
-    membermodal.modal();
-    $('#name').val('')
-    $('#id').val('')
-    $('#status').val('')
-    $('#profilePicture').val('')
-        }
-    }
-  })
-})
-
 
 
  })
