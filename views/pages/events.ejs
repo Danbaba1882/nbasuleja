@@ -28,33 +28,31 @@
 		
 		<div class="container-fluid">
 			<div class="events">
-				<% event.forEach((event)=>{%>
+					<h2 class="text-center mb-4 mt-4">EVENTS</h2>
+				<% for (var i=0; i < events.length; i++) { %>
 					<div class="row">
 							<div class="col-md-2">
-			
 							</div>
 							<div class="col-md-4">
 
-								<h2 class="text-center mb-4 mt-4">EVENTS</h2>
+				
 									<div class="feature">
 									<header>
 										<img src="images/icon-4.png" class="feature-icon">
 										<div class="feature-title-copy">
 											
-											<P class="feature-subtitle"><%=event.title%></P>
+											<P class="feature-subtitle"><a href="/get-events/<%=events[i]._id%>"><%=events[i].title%></a></P>
 										</div>
 									</header>
-									<p><%=event.content%></p>
+									<p><%=events[i].content%></p>
 									<a href="#" class="more-link">Read More</a>
 								</div>
 								
-								
-								
+							</div>
 							<div class="col-md-2">
-										</div>
 							</div>
 						</div>
-						<% })%>
+						<%}%>
 			</div>
 
 		

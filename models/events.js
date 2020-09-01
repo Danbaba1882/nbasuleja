@@ -3,7 +3,7 @@ const schema = mongoose.Schema;
 
 const Events = new schema ({
     date: {type: Date,default: Date.now()},
-    headline: String,
+    title: String,
     content: String
 })
 

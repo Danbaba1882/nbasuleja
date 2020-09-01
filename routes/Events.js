@@ -2,14 +2,15 @@ const express = require ('express');
  const router = express.Router();
  const Events = require ('../models/events')
 
- router.post('/', async (req, res)=>{
+ router.post('/', (req, res)=>{
      console.log('events route is working')
      console.log(req.body)
    const events = new Events ({
-        headline: req.body.headline,
+        title: req.body.title,
         content: req.body.content
     })
-    await Events.create(events).then((events, err)=>{
+    Events.create(events).then((events, err)=>{
+        console.log('events ', events)
         if (err){
             res.send(err);
         }

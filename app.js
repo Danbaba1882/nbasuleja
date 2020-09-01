@@ -18,6 +18,8 @@ const contactRouter = require ('./routes/contact')
 const allmembersRouter = require('./routes/membersPageroute')
 const geteventRouter = require('./routes/getevent')
 const getnewsRouter = require('./routes/getnews')
+const getallnewsRouter = require('./routes/getallnews')
+const getalleventsRouter = require('./routes/getallevents')
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 // const getprofileRouter = require('./routes/profile')
@@ -52,11 +54,15 @@ app.use('/about', aboutRouter)
 app.use('/find-a-lawyer', searchRouter)
 app.use('/contact-us', contactRouter)
 app.use('/members', allmembersRouter)
-app.use('getevent/:id', geteventRouter)
-app.use('getnews/:id', getnewsRouter)
+app.use('/getevent/:id', geteventRouter)
+app.use('/getnews/:id', getnewsRouter)
+app.use('/news', getallnewsRouter)
+app.use('/events', getalleventsRouter)
 const router = express.Router();
 
  const Members = require ('./models/members')
+ const Events = require ('./models/events')
+ const News = require ('./models/news')
 
 app.get('/getprofile/:id', (req, res)=>{
     const id = new ObjectId(req.params.id);
@@ -64,6 +70,22 @@ const member =  Members.findById({_id: id});
 console.log(member);
     res.render('profile', {member: member})
 })
+
+app.get('/get-news/:id', (req, res)=>{
+  const id = new ObjectId(req.params.id);
+const news =  News.findById({_id: id});
+console.log(news);
+  res.render('adminnewsr', {news: news})
+})
+
+app.get('/get-event/:id', (req, res)=>{
+  const id = new ObjectId(req.params.id);
+const event =  Events.findById({_id: id});
+console.log(event);
+  res.render('admineventr', {event: event})
+})
+
+// get
 
 // app.use('/getprofile/:id', getprofileRouter)
 // catch 404 and forward to error handler

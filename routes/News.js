@@ -5,7 +5,7 @@ const express = require ('express');
  router.post('/', async (req, res)=>{
      console.log(req.body)
     const news = new News ({
-        headline: req.body.headline,
+        title: req.body.title,
         content: req.body.content
     })
     await News.create(news).then((news, err)=>{
